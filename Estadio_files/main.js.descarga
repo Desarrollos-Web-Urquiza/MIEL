@@ -1,0 +1,112 @@
+function abreContacto(){
+	$('.overlay').show();
+	$('#form').animate({top: '80px'},500);
+	$('body').append('<div class="overlay"></div>');
+	return false;
+}
+
+function abreNews(){
+	$('.overlay').show();
+	$('#form2').animate({top: '80px'},500);
+	$('body').append('<div class="overlay"></div>');
+	return false;
+}
+function abreConsejeria(){
+	$('.overlay').show();
+	$('#form3').animate({top: '80px'},500);
+	$('body').append('<div class="overlay"></div>');
+	return false;
+}
+
+function cierraVentanas(){
+	$('#form').animate({top: '-500px'},300);
+	$('#form2').animate({top: '-500px'},300);
+	$('#form3').animate({top: '-500px'},300);
+	$('#form_ok').animate({top: '-500px'},300);
+
+	$('.overlay').remove();
+	//$('.overlay').hide();
+
+}
+
+
+
+
+function getUrlVars() {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+	});
+	return vars;
+}
+
+
+
+$(function() {
+	$(".dialog-open").live('click',function(e){ //Handler para abrir dialogos capturando el href
+		e.preventDefault();
+
+		var url = $(this).attr('href');
+		var tit = $(this).attr('title2')?$(this).attr('title2'):$(this).attr('title');
+		var parentReload = $(this).attr('parentReload');
+		var w = 920;
+		var h = 350;
+		var callback= $(this).attr('callback');
+
+		if($(this).attr('w')){
+			if($(this).attr('w')=='f'){
+				var w = $(window).width()-100;
+			}else{
+				var w = $(this).attr('w');
+			}
+		}
+		if($(this).attr('h')){
+			if($(this).attr('h')=='f'){
+				var h= $(window).height()-100;
+			}else{
+				var h = $(this).attr('h');
+			}
+		}
+
+		abrirDialogo(url,tit,w,h,parentReload,callback);
+
+	});
+});
+
+var iframe=null;
+
+function abrirDialogo(url,tit,w,h,parentReload,callback){
+	if(w=='f'){
+		w = $(document).width()-100;
+	}
+	if(h=='f'){
+		h= $(window).height()-100;
+	}
+	iframe = $('<iframe src="'+ url +'" id="iframe-dialog" />');
+
+
+	iframe.dialog({
+		autoOpen: true,
+		title: tit,
+		width: w,
+		height: h,
+		modal: true,
+		resizable: false,
+		position: { my: "center", at: "center" },
+		close: function(){
+
+			if(parentReload!=0){
+
+				window.location.reload()
+			}else{
+				$('#acciones_bulk').val("0");
+			}
+			iframe.remove();
+			if(callback !== undefined){
+				eval(callback);
+			}
+		},
+	}).width(w-12).height(h - 10);
+
+
+}

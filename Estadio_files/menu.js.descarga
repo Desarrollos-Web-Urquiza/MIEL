@@ -1,0 +1,137 @@
+$(document).ready(function(){
+
+
+	$('#header').mouseenter(function(){
+		$('.dropable').each(function(){
+			$(this).show().animate({width:'0px',left: '0px'},0,function(){
+				$(this).find('.inner').hide();
+				$(this).removeClass('animating');
+			})
+		})
+
+	});
+
+	$('#mGremial').mouseenter(
+	function(){
+		$('.dropable').each(function(){
+			$(this).show().animate({width:'0px',left: '0px'},0,function(){
+				$(this).find('.inner').hide();
+				$(this).removeClass('animating');
+			})
+		})
+		if (!$('#gremDrop').hasClass('animating')){
+			$('#gremDrop').addClass('animating');
+			$('#gremDrop').show().animate({width:'250px',left: '250px'},200,function(){
+				$('#gremDrop .inner').show();
+				$('#gremDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#gremDrop').mouseleave(function(){
+
+		if (!$('#gremDrop').hasClass('animating')){
+			$('#gremDrop').addClass('animating');
+			$('#gremDrop').show().animate({width:'0px'},200,function(){
+				$('#gremDrop .inner').hide();
+				$('#gremDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#mInstitucional').mouseenter(
+	function(){
+		$('.dropable').each(function(){
+			$(this).show().animate({width:'0px'},0,function(){
+				$(this).find('.inner').hide();
+				$(this).removeClass('animating');
+			})
+		})
+		if (!$('#institDrop').hasClass('animating')){
+			$('#institDrop').addClass('animating');
+			$('#institDrop').show().animate({width:'250px'},160,function(){
+				$('#institDrop .inner').show();
+				$('#institDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#institDrop').mouseleave(function(){
+
+		if (!$('#institDrop').hasClass('animating')){
+			$('#institDrop').addClass('animating');
+			$('#institDrop').show().animate({width:'0px'},100,function(){
+				$('#institDrop .inner').hide();
+				$('#institDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+
+	$('#mActividades').mouseenter(
+	function(){
+		$('.dropable').each(function(){
+			$(this).show().animate({width:'0px',left: '0px'},0,function(){
+				$(this).find('.inner').hide();
+				$(this).removeClass('animating');
+			})
+		})
+		if (!$('#actDrop').hasClass('animating')){
+			$('#actDrop').addClass('animating');
+			$('#actDrop').show().animate({width:'250px',left: '500px'},300,function(){
+				$('#actDrop .inner').show();
+				$('#actDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#actDrop').mouseleave(function(){
+
+		if (!$('#actDrop').hasClass('animating')){
+			$('#actDrop').addClass('animating');
+			$('#actDrop').show().animate({width:'0px'},200,function(){
+				$('#actDrop .inner').hide();
+				$('#actDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#mBeneficios').mouseenter(
+	function(){
+		$('.dropable').each(function(){
+			$(this).show().animate({width:'0px'},0,function(){
+				$(this).find('.inner').hide();
+				$(this).removeClass('animating');
+			})
+		})
+		if (!$('#benefDrop').hasClass('animating')){
+			$('#benefDrop').addClass('animating');
+			$('#benefDrop').show().animate({width:'250px',left: '750px'},400,function(){
+				$('#benefDrop .inner').show();
+				$('#benefDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+	$('#benefDrop').mouseleave(function(){
+
+		if (!$('#benefDrop').hasClass('animating')){
+			$('#benefDrop').addClass('animating');
+			$('#benefDrop').show().animate({width:'0px',left: '0px'},200,function(){
+				$('#benefDrop .inner').hide();
+				$('#benefDrop').removeClass('animating');
+			})
+		}
+
+	});
+
+
+
+})
